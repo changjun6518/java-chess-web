@@ -10,11 +10,14 @@ repositories {
 }
 
 dependencies {
-    compile('com.sparkjava:spark-core:2.9.0')
-    compile('com.sparkjava:spark-template-handlebars:2.7.1')
-    compile('ch.qos.logback:logback-classic:1.2.3')
     testCompile('org.junit.jupiter:junit-jupiter:5.6.0')
     testCompile('org.assertj:assertj-core:3.15.0')
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.5.4'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.5.4'
+    implementation 'org.springframework.boot:spring-boot-devtools:2.5.2'
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    implementation 'com.h2database:h2:1.4.200'
+//    runtimeOnly 'com.h2database:h2'
 }
 
 test {
