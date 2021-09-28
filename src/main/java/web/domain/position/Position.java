@@ -2,11 +2,9 @@ package web.domain.position;
 
 import web.domain.direction.Direction;
 import lombok.NoArgsConstructor;
+import web.domain.piece.Piece;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -14,7 +12,12 @@ import java.util.Objects;
 public class Position {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "position_id")
     private Long id;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "piece_id")
+    private Piece piece;
 
     private static final int BOARD_START_INDEX = 0;
     private static final int BOARD_END_INDEX = 8;

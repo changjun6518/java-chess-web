@@ -7,6 +7,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.web.WebAppConfiguration;
 import web.domain.board.Board;
 import web.domain.board.BoardFactory;
 import web.domain.piece.Piece;
@@ -85,12 +86,6 @@ class PositionRepositoryTest {
 
     @Test
     void otherTest() {
-
-        for (int i = 1; i <=8 ; i++) {
-            for (int j = 1; j <= 8; j++) {
-                positionRepository.save(new Position(i, j));
-            }
-        }
 
         HashMap<Position, Piece> board = BoardFactory.createBoard();
         Board temp = new Board(board);

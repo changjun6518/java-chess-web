@@ -4,10 +4,7 @@ import web.domain.board.Board;
 import web.domain.position.Position;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -15,11 +12,14 @@ import java.util.Objects;
 public class Piece {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "piece_id")
     private Long id;
 
     private PieceType pieceType;
     private Team team;
     private Character mark;
+
+
 
     public Piece(PieceType pieceType, Team team, Character mark) {
         this.pieceType = pieceType;

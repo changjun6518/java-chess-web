@@ -16,17 +16,18 @@ public class Board {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "board_id")
     private Long id;
 
     private boolean finished = false;
 
     private Team turn = Team.WHITE;
 
-    @OneToMany
-    @JoinColumn
-    @MapKeyJoinColumn
-    @Cascade(value = org.hibernate.annotations.CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @MapKeyJoinColumn(name = "position_id")
     private Map<Position, Piece> board;
+
+
 
 
     public Board(Map<Position, Piece> board) {
