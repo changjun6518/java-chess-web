@@ -15,7 +15,7 @@ import java.util.Map;
 public class Board {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "board_id")
     private Long id;
 
@@ -26,9 +26,6 @@ public class Board {
     @OneToMany(cascade = CascadeType.ALL)
     @MapKeyJoinColumn(name = "position_id")
     private Map<Position, Piece> board;
-
-
-
 
     public Board(Map<Position, Piece> board) {
         this.board = board;
@@ -62,16 +59,12 @@ public class Board {
             throw new IllegalArgumentException("지금 턴이 아닙니다.");
         }
 
-
         if (fromPiece.movable(Position.of(from), this, to)) {
             updateSquareBy(Position.of(to), fromPiece);
             updateSquareBy(Position.of(from), Piece.of(PieceType.NONE, Team.NONE, '.'));
         }
 
-
         if (toPiece.isKing()) {
-            // how? 게임 끝
-            // 함수 넘겨버리자 ->
             finished = true;
         }
 
@@ -97,7 +90,7 @@ public class Board {
         finished = true;
     }
 
-    public void initBoard() {
-        this.board = BoardFactory.createBoard();
-    }
+//    public void initBoard() {
+//        this.board = BoardFactory.createBoard();
+//    }
 }

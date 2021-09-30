@@ -11,7 +11,7 @@ import java.util.Objects;
 @NoArgsConstructor
 public class Position {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "position_id")
     private Long id;
 

@@ -84,13 +84,11 @@ class PositionRepositoryTest {
 //        }
 //    }
 
-    @Test
-    void otherTest() {
-
-        HashMap<Position, Piece> board = BoardFactory.createBoard();
-        Board temp = new Board(board);
-
-        boardRepository.save(temp);
-
-    }
+//    @Test
+//    void otherTest() {
+//        HashMap<Position, Piece> board = BoardFactory.createBoard();
+//        Board temp = new Board(board);
+//
+//        boardRepository.save(temp);
+//    }
 }

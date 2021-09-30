@@ -30,31 +30,31 @@ class BoardFactoryTest {
     }
 
 
-    @DisplayName("initialization test")
-    @Test
-    @Disabled
-    void initChessboard_size() {
-        // when
-        final HashMap<Position, Piece> board = BoardFactory.createBoard();
-
-        // then
-        assertThat(board.size()).isEqualTo(64);
-    }
-
-    @DisplayName("position test")
-    @Test
-    @Disabled
-    void initChessboard_locationTest() {
-//        // given
-        Piece king = Piece.of(PieceType.KING, Team.WHITE,'k');
-        Position position = new Position(5, 1);
+//    @DisplayName("initialization test")
+//    @Test
+//    @Disabled
+//    void initChessboard_size() {
 //        // when
-        final HashMap<Position, Piece> board = BoardFactory.createBoard();
-        final Piece piece = board.get(position);
+//        final HashMap<Position, Piece> board = BoardFactory.createBoard();
 //
 //        // then
-        assertThat(king).isEqualTo(piece);
-    }
+//        assertThat(board.size()).isEqualTo(64);
+//    }
+
+//    @DisplayName("position test")
+//    @Test
+//    @Disabled
+//    void initChessboard_locationTest() {
+////        // given
+//        Piece king = Piece.of(PieceType.KING, Team.WHITE,'k');
+//        Position position = new Position(5, 1);
+//        // when
+//        final HashMap<Position, Piece> board = BoardFactory.createBoard();
+//        final Piece piece = board.get(position);
+//
+//        // then
+//        assertThat(king).isEqualTo(piece);
+//    }
 
     @Test
     void finalBoardTest() {

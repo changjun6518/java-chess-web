@@ -1,15 +1,15 @@
-#server:
-#  port: 8080  # Spring boot Server port
+server:
+  port: 8080  # Spring boot Server port
 
 spring:
-#  h2:
-#    console:
-#      enabled: true  # H2 웹 콘솔을 사용하겠다는 의미
-#      path: /test_db  # 콘솔의 경로
+  h2:
+    console:
+      enabled: true  # H2 웹 콘솔을 사용하겠다는 의미
+      path: /h2-console  # 콘솔의 경로
 
   datasource:
     driver-class-name: org.h2.Driver  #h2 드라이버 설정
-    url: jdbc:h2:tcp://localhost/~/jwp-chess-web  #접속 URL
+    url: jdbc:h2:mem:testdb  #접속 URL
     username: sa
     password:
 
@@ -17,3 +17,7 @@ spring:
     hibernate:
       ddl-auto: create
     show-sql: true
+
+  mvc:
+    view:
+      suffix: .html

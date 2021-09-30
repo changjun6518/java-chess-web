@@ -11,15 +11,13 @@ import java.util.Objects;
 @NoArgsConstructor
 public class Piece {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "piece_id")
     private Long id;
 
     private PieceType pieceType;
     private Team team;
     private Character mark;
-
-
 
     public Piece(PieceType pieceType, Team team, Character mark) {
         this.pieceType = pieceType;
