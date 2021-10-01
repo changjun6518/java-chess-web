@@ -1,5 +1,6 @@
 package web.domain.piece;
 
+import lombok.Getter;
 import web.domain.board.Board;
 import web.domain.position.Position;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,7 @@ import java.util.Objects;
 
 @Entity
 @NoArgsConstructor
+@Getter
 public class Piece {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -100,5 +102,13 @@ public class Piece {
 
     public Team getTeam() {
         return team;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public PieceType getPieceType() {
+        return pieceType;
     }
 }

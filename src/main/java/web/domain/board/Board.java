@@ -1,5 +1,6 @@
 package web.domain.board;
 
+import lombok.Getter;
 import org.hibernate.annotations.Cascade;
 import web.domain.piece.Piece;
 import web.domain.piece.PieceType;
@@ -12,6 +13,7 @@ import java.util.Map;
 
 @Entity
 @NoArgsConstructor
+@Getter
 public class Board {
 
     @Id
@@ -31,6 +33,17 @@ public class Board {
         this.board = board;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public Team getTurn() {
+        return turn;
+    }
+
+    public Map<Position, Piece> getBoard() {
+        return board;
+    }
     public Piece findPieceByPosition(Position position) {
         return board.get(position);
     }

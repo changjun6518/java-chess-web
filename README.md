@@ -7,6 +7,9 @@
 
 ## 구현 목록
 - entity
+- view
+  - 시작화면(index.html)
+  - 게임화면(board.html)
 - 유저가 게임시작을 누름 -> 컨트롤러 -> 서비스 -> 레포지토리 -> 뷰
 - history
   

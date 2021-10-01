@@ -66,19 +66,9 @@ public class Position {
     }
 
     public Position updatePosition(Direction direction) {
-//        if (checkValidatePosition(file + direction.getCol(), rank + direction.getRow())) {
-//            throw new BoardOutOfIndexException();
-//        }
         return new Position(file + direction.getCol(), rank + direction.getRow());
     }
 
-    public void updatePosition2(Direction direction) {
-//        if (checkValidatePosition(file + direction.getCol(), rank + direction.getRow())) {
-//            throw new BoardOutOfIndexException();
-//        }
-        file += direction.getCol();
-        rank += direction.getRow();
-    }
 
     public static boolean checkValidatePosition(String position) {
         int file = position.charAt(0) - FILE_ASCII;
@@ -86,6 +76,14 @@ public class Position {
 
         return file >= BOARD_START_INDEX && file <= BOARD_END_INDEX &&
                 rank >= BOARD_START_INDEX && rank <= BOARD_END_INDEX;
+    }
+
+    public String parseString() {
+        Character a = (char) (file + FILE_ASCII);
+        StringBuilder sb = new StringBuilder();
+        sb.append(a);
+        sb.append(rank);
+        return sb.toString();
     }
 
     @Override
