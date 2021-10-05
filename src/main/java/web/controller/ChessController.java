@@ -17,8 +17,7 @@ public class ChessController {
         return "index";
     }
 
-
-    @GetMapping("board")
+    @GetMapping("/start")
     public String boardPage() {
         return "board";
     }
