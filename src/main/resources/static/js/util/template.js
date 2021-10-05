@@ -1,15 +1,15 @@
 export const listBoardTemplate = (board) => {
-`<div class="board">
-// board
+    console.log(board);
+    return `<div class="board">
     <div class="board-row">
-        <div class="white-square"><img src="/images/${board.boardMap.squares.a8}.png" alt=""></div>
-        <div class="black-square"><img src="/images/${board.boardMap.squares.b8}.png" alt=""></div>
-        <div class="white-square"><img src="/images/${board.boardMap.squares.c8}.png" alt=""></div>
-        <div class="black-square"><img src="/images/${board.boardMap.squares.d8}.png" alt=""></div>
-        <div class="white-square"><img src="/images/${board.boardMap.squares.e8}.png" alt=""></div>
-        <div class="black-square"><img src="/images/${board.boardMap.squares.f8}.png" alt=""></div>
-        <div class="white-square"><img src="/images/${board.boardMap.squares.g8}.png" alt=""></div>
-        <div class="black-square"><img src="/images/${board.boardMap.squares.h8}.png" alt=""></div>
+        <div class="white-square"><img src="/images/${board.squares.a2}.png" alt=""></div>
+        <div class="black-square"><img src="/images/${board.squares.b2}.png" alt=""></div>
+        <div class="white-square"><img src="/images/${board.squares.c2}.png" alt=""></div>
+        <div class="black-square"><img src="/images/${board.squares.d2}.png" alt=""></div>
+        <div class="white-square"><img src="/images/${board.squares.e2}.png" alt=""></div>
+        <div class="black-square"><img src="/images/${board.squares.f2}.png" alt=""></div>
+        <div class="white-square"><img src="/images/${board.squares.g2}.png" alt=""></div>
+        <div class="black-square"><img src="/images/${board.squares.h2}.png" alt=""></div>
     </div>
     <div class="board-row">
         <div class="white-square"></div>
@@ -22,7 +22,7 @@ export const listBoardTemplate = (board) => {
         <div class="black-square"></div>
     </div>
 
-</div>` 
+</div>`
 
-    
+
 };
