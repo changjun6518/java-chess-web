@@ -2,6 +2,7 @@ package web.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,5 +24,6 @@ public class BoardController {
     public ResponseEntity<BoardResponse> boardPage() throws JsonProcessingException {
         return new ResponseEntity<>(boardService.createBoard(), HttpStatus.OK);
     }
+
 
 }

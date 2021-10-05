@@ -18,5 +18,8 @@ public class ChessController {
     }
 
 
-
+    @GetMapping("board")
+    public String boardPage() {
+        return "board";
+    }
 }
