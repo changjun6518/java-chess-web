@@ -28,8 +28,7 @@ public class BoardMap {
             }
             String squarePiece = piece.getPieceType().name();
             Team team = piece.getTeam();
-            this.squares.put(team + "_" + squarePosition, squarePiece);
-
+            this.squares.put(squarePosition, team.name() + "_" + squarePiece);
         }
     }
 }

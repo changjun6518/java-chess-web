@@ -12,7 +12,9 @@ import web.domain.position.Position;
 import web.service.dto.BoardResponse;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class BoardService {
@@ -30,8 +32,25 @@ public class BoardService {
         Board initBoard = new Board(board);
 
         Board savedBoard = boardRepository.save(initBoard);
-        Map<Position, Piece> mapBoard = savedBoard.getBoard();
+        return new BoardResponse(savedBoard.getId(), savedBoard.getTurn(), savedBoard.getBoard());
+    }
 
-        return new BoardResponse(savedBoard.getId(), savedBoard.getTurn(), mapBoard);
+    public List<Long> getBoards() {
+        return boardRepository.findAll().stream()
+                .map(Board::getId)
+                .collect(Collectors.toList());
+    }
+
+    public void deleteBoard(Long id) {
+        boardRepository.deleteById(id);
+    }
+
+    public BoardResponse findBoard(Long id) {
+        Board board = boardRepository.findById(id).orElseThrow(() ->
+                                    new IllegalArgumentException("not found board"));
+
+        return new BoardResponse(board.getId(), board.getTurn(), board.getBoard());
     }
 }
+
+
