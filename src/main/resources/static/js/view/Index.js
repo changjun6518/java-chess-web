@@ -16,12 +16,12 @@ function Index() {
                 'Content-Type': 'application/json',
                 // 'accept': 'application/json'
             }
-        }).then(data => data.json())
-            .then(boards => listBoardTemplate(boards.boardMap));
+        }).then(data => console.log(data));
+            // data => data.json())
+            // .then(boards => listBoardTemplate(boards.boardMap));
 
-        console.log(boardTemplate);
             // .then(boards => boards.map(board => square => listBoardTemplate(square)).join(""))
-        $boardList.innerHTML = boardTemplate;
+        // $boardList.innerHTML = boardTemplate;
     };
     //TODO - DELETE_BOARD  --- 게임삭제 버튼 누르면 콜
 
