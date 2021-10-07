@@ -22,8 +22,10 @@ spring:
     view:
       suffix: .html
 
+  thymeleaf:
+    cache: false
   devtools:
     livereload:
       enabled: true
-    thymeleaf:
-      cache: false
+    restart:
+      enabled: true

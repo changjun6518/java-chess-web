@@ -3,6 +3,7 @@ package web.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import web.domain.BoardRepository;
 import web.domain.PositionRepository;
 import web.domain.board.Board;
@@ -50,6 +51,12 @@ public class BoardService {
                                     new IllegalArgumentException("not found board"));
 
         return new BoardResponse(board.getId(), board.getTurn(), board.getBoard());
+    }
+
+    @Transactional
+    public void movePiece(Long boardId, String from, String to) {
+        Board board = boardRepository.getById(boardId);
+        board.move(from, to);
     }
 }
 

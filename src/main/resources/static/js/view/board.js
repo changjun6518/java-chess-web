@@ -21,8 +21,30 @@ function Board() {
         $board.innerHTML = template;
     }
 
+    let clickList = [];
+
+    const movePiece = async (event) => {
+        clickList.push(event.target.id);
+
+        if (clickList.length === 2) {
+            await fetch(`/api/move/${id}?from=${clickList[0]}&to=${clickList[1]}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
+
+            clickList = [];
+            showBoard();
+        }
+
+    };
+
+
+
     this.init = () => {
         showBoard();
+        $board.addEventListener("click", movePiece);
     }
 }
 

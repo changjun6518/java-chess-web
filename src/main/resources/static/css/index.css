@@ -16,11 +16,6 @@ button {
     margin-left: 100px;
 }
 
-img {
-    width: 75px;
-    height: 75px;
-}
-
 .main-logo {
     display: flex;
     justify-content: center;

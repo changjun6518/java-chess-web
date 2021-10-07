@@ -1,0 +1,49 @@
+img {
+    width: 75px;
+    height: 75px;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-title {
+    margin: 10px auto;
+    border: bisque solid 10px;
+    background-color: beige;
+    color: brown;
+    font-family: "배달의민족 주아";
+    font-size: 50px;
+
+
+}
+
+.board {
+    margin: 50px 0;
+}
+
+#board {
+
+}
+
+
+.board-row{
+    display: flex;
+    align-content: center;
+}
+
+.white-square {
+    border: 1px solid black;
+    width: 75px;
+    height: 75px;
+}
+
+
+.black-square {
+    background-color: lightslategrey;
+    border: 1px solid black;
+    width: 75px;
+    height: 75px;
+}

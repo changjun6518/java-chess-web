@@ -45,4 +45,13 @@ public class BoardController {
         return new ResponseEntity<>(SUCCESS_MESSAGE, HttpStatus.OK);
     }
 
+    @PutMapping("/move/{id}")
+    public ResponseEntity<?> movePiece(@PathVariable Long id,
+                                      @RequestParam("from") String from,
+                                      @RequestParam("to") String to) {
+        System.out.println("from = " + from);
+        System.out.println("to = " + to);
+        boardService.movePiece(id, from, to);
+        return new ResponseEntity<>(SUCCESS_MESSAGE, HttpStatus.OK);
+    }
 }
