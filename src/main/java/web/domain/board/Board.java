@@ -1,7 +1,9 @@
 package web.domain.board;
 
 import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Cascade;
+import org.springframework.transaction.annotation.Transactional;
 import web.domain.piece.Piece;
 import web.domain.piece.PieceType;
 import web.domain.piece.Team;
@@ -14,6 +16,7 @@ import java.util.Map;
 @Entity
 @NoArgsConstructor
 @Getter
+@Setter
 public class Board {
 
     @Id
@@ -64,6 +67,7 @@ public class Board {
         board.put(position, piece);
     }
 
+
     public void move(String from, String to) {
         Piece fromPiece = findPieceByPosition(from);
         Piece toPiece = findPieceByPosition(to);
@@ -73,15 +77,21 @@ public class Board {
         }
 
         if (fromPiece.movable(Position.of(from), this, to)) {
-            updateSquareBy(Position.of(to), fromPiece);
-            updateSquareBy(Position.of(from), Piece.of(PieceType.NONE, Team.NONE, '.'));
-        }
+            toPiece.setPieceType(fromPiece.getPieceType());
+            toPiece.setMark(fromPiece.getMark());
+            toPiece.setTeam(fromPiece.getTeam());
+//                updateSquareBy(Position.of(from), Piece.of(PieceType.NONE, Team.NONE, '.'));
 
-        if (toPiece.isKing()) {
-            finished = true;
-        }
+            fromPiece.setPieceType(PieceType.NONE);
+            fromPiece.setMark('.');
+            fromPiece.setTeam(Team.NONE);
+//                updateSquareBy(Position.of(to), fromPiece);
 
-        turn = changTurn(fromPiece);
+            turn = changTurn(toPiece);
+            if (toPiece.isKing()) {
+                finished = true;
+            }
+        }
     }
 
     public Character getPieceMarkBy(Position position) {

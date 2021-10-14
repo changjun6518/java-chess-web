@@ -9,9 +9,11 @@ import web.domain.PositionRepository;
 import web.domain.board.Board;
 import web.domain.board.BoardFactory;
 import web.domain.piece.Piece;
+import web.domain.piece.Team;
 import web.domain.position.Position;
 import web.service.dto.BoardResponse;
 
+import javax.persistence.EntityManager;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -57,6 +59,7 @@ public class BoardService {
     public void movePiece(Long boardId, String from, String to) {
         Board board = boardRepository.getById(boardId);
         board.move(from, to);
+
     }
 }
 

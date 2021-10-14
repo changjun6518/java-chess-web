@@ -27,7 +27,7 @@ public class SingleMoveStrategy implements MoveStrategy {
             Piece nextPiece = board.findPieceByPosition(nextPosition);
 
             if (board.isValidPosition(nextPosition)) {
-                if (fromPiece.isOtherTeam(nextPiece)) {
+                if (fromPiece.isSameTeam(nextPiece)) {
                     continue;
                 }
                 path.add(nextPosition);

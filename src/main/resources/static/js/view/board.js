@@ -40,8 +40,6 @@ function Board() {
 
     };
 
-
-
     this.init = () => {
         showBoard();
         $board.addEventListener("click", movePiece);

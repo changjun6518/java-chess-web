@@ -1,6 +1,7 @@
 package web.domain.piece;
 
 import lombok.Getter;
+import lombok.Setter;
 import web.domain.board.Board;
 import web.domain.position.Position;
 import lombok.NoArgsConstructor;
@@ -11,6 +12,7 @@ import java.util.Objects;
 @Entity
 @NoArgsConstructor
 @Getter
+@Setter
 public class Piece {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -111,4 +113,9 @@ public class Piece {
     public PieceType getPieceType() {
         return pieceType;
     }
+
+    public boolean isBlank() {
+        return pieceType == PieceType.NONE;
+    }
+
 }
